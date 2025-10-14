@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col-12">
+    <h4>You have selectged the {{ OrderInfo.orderID }}</h4>
+    <table class="table table-bordered mb-4">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <!-- <th>Name</th> -->
+          <th>FoodName</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Location</th>
+          <th>Information</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of SelectedCustoemrs">
+          <!-- <td>{{item.OrderID}}</td> -->
+          <td>{{ item.CustomerName }}</td>
+          <td>{{ item.CustomerFoodName }}</td>
+          <td>{{ item.CustomerAge }}</td>
+          <td>{{ item.CustomerGender }}</td>
+          <td>{{ item.CusotmerLocation }}</td>
+          <td>{{ item.Information }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- 
+CustomerName : "Ravi",
+        CustomerFoodName : ["Daal","Rice"],
+        CustomerAge  : 25,
+        CustomerGender : 'Male',
+        CusotmerLocation : 'Bangolore',
+        Information   : "He is a software engineer from HSR Layout" -->
