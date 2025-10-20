@@ -8,6 +8,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrdersDetailsComponent } from './orders/orders-details/orders-details.component';
+import { authGuard } from './auth.guard';
 
 //path = address
 
@@ -39,9 +40,10 @@ const routes: Routes = [
     component: OrdersComponent,
   },
   {
-    path: 'orders-details/:orderID',             //https://locahost:4200/orders/orders-details
+    path: 'orders-details/:orderID',    //https://locahost:4200/orders/orders-details/1
     //                                   http://localhost:4200/orders-details
     component: OrdersDetailsComponent,
+    canActivate:[authGuard]
   },
   {
     path:'**',                  //https://localhost:4200/akkkkkagbgggg

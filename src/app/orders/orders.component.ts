@@ -16,7 +16,21 @@ export class OrdersComponent implements OnInit {
   }
 
   evtNavigation(orderID:any){
-     this.router.navigate(['/orders-details', orderID])
+
+    //Pass based on the params
+     //this.router.navigate(['/orders-details', orderID])
+
+    //Pass based on the query params
+
+    //control means condition based navigation
+
+    // let choice = "No";
+    // if(choice == "Yes")
+    // {
+       //this.router.navigate(['/orders-details'], {queryParams:{ID:orderID}})
+   // }
+
+     //this.router.navigate(['/orders-details'], {fragment:orderID})
   }
 
 }
