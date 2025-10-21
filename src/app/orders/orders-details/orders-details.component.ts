@@ -25,7 +25,7 @@ export class OrdersDetailsComponent implements OnInit {
         let custoemrsList = this.orderservice.getCustomersList();
 
         setTimeout(() => {
-         this.SelectedCustoemrs = custoemrsList.filter((customer)=>{
+          this.SelectedCustoemrs = custoemrsList.filter((customer)=>{
              return customer.OrderID == Number(result.orderID) ;   
           });
         },1000);

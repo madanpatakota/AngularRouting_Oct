@@ -9,6 +9,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrdersDetailsComponent } from './orders/orders-details/orders-details.component';
 import { authGuard } from './auth.guard';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { exitGuard } from './exit.guard';
 
 //path = address
 
@@ -40,10 +43,15 @@ const routes: Routes = [
     component: OrdersComponent,
   },
   {
+    path: 'login',             //https://locahost:4200/login
+    component: LoginComponent,
+  },
+  {
     path: 'orders-details/:orderID',    //https://locahost:4200/orders/orders-details/1
     //                                   http://localhost:4200/orders-details
     component: OrdersDetailsComponent,
-    canActivate:[authGuard]
+    canActivate   : [authGuard],
+    canDeactivate : [exitGuard]
   },
   {
     path:'**',                  //https://localhost:4200/akkkkkagbgggg
@@ -60,8 +68,8 @@ const routes: Routes = [
 //https://loclhost:4200/aboutus ----> aboutus componet
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutusComponent, NotfoundComponent, OrdersComponent, OrdersDetailsComponent],
-  imports: [BrowserModule , RouterModule.forRoot(routes)],         //register the routes
+  declarations: [AppComponent, HomeComponent, AboutusComponent, NotfoundComponent, OrdersComponent, OrdersDetailsComponent, LoginComponent],
+  imports: [BrowserModule , FormsModule, RouterModule.forRoot(routes)],         //register the routes
   providers: [],
   bootstrap: [AppComponent],
 })
