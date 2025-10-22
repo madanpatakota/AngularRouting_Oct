@@ -12,6 +12,7 @@ import { authGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { exitGuard } from './exit.guard';
+import { OrdersTestComponent } from './orders-test/orders-test.component';
 
 //path = address
 
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'home',                //https://locahost:4200/home
     component: HomeComponent,
+    children:[{
+      path:'hometest',             //https://localhost:4200/home/hometest
+      component:OrdersTestComponent
+    }]
   },
   {
     path: 'aboutus',             //https://locahost:4200/aboutus
@@ -41,7 +46,21 @@ const routes: Routes = [
   {
     path: 'orders',             //https://locahost:4200/aboutus
     component: OrdersComponent,
+    children:[
+      {
+        path:'orderstest',                         //https://localhost:4200/orders/orderstest
+        component:OrdersTestComponent
+      }
+      // {
+      //   path:'orderstesttest',                  //https://localhost:4200/orders/orderstesttest
+      //   component:_______
+      // }
+    ]
   },
+  // {
+  //   path:'orders/orderstest',                  //https://localhost:4200/akkkkkagbgggg
+  //   component:OrdersTestComponent
+  // },
   {
     path: 'login',             //https://locahost:4200/login
     component: LoginComponent,
@@ -55,8 +74,10 @@ const routes: Routes = [
   },
   {
     path:'**',                  //https://localhost:4200/akkkkkagbgggg
-    component:NotfoundComponent
+    component:NotfoundComponent,
+    data : { message: 'Page not found!'}    // i can take the data from the route also
   }
+
   // {
   //   path:'**',                  //https://localhost:4200/akkkkkagbgggg
   //   redirectTo:'home',
@@ -68,7 +89,7 @@ const routes: Routes = [
 //https://loclhost:4200/aboutus ----> aboutus componet
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutusComponent, NotfoundComponent, OrdersComponent, OrdersDetailsComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, AboutusComponent, NotfoundComponent, OrdersComponent, OrdersDetailsComponent, LoginComponent, OrdersTestComponent],
   imports: [BrowserModule , FormsModule, RouterModule.forRoot(routes)],         //register the routes
   providers: [],
   bootstrap: [AppComponent],
